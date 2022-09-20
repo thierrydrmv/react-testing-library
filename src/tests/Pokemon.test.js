@@ -46,6 +46,11 @@ describe('testes componente Pokemon.js', () => {
     userEvent.click(linkMoreDetails);
     const { pathname } = history.location;
     expect(pathname).toBe(`/pokemons/${snorlax.id}`);
+  });
+  it('testar se um icone de estrela aparece nos pokemons favoritos', () => {
+    renderWithRouter(<Pokemon pokemon={ snorlax } isFavorite />);
+    const linkMoreDetails = screen.getByRole('link', { name: /more details/i });
+    userEvent.click(linkMoreDetails);
     const imageFavorite = screen
       .getByRole('img', { name: `${snorlax.name} is marked as favorite` });
     expect(imageFavorite).toHaveAttribute('src', '/star-icon.svg');
