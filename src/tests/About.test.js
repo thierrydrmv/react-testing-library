@@ -3,10 +3,10 @@ import About from '../pages/About';
 import renderWithRouter from '../renderWithRouter';
 
 describe('testes componente About.js', () => {
-  it('testa se a página possui 2 frases e um titulo', () => {
+  it('testa se a página possui 2 frases e um titulo h2', () => {
     renderWithRouter(<About />);
 
-    const aboutTitle = screen.getByRole('heading', { name: /about pokédex/i });
+    const aboutTitle = screen.getByRole('heading', { name: /about pokédex/i, level: 2 });
     const aboutPokedex1 = screen.getByText(
       /This application simulates a Pokédex, a digital encyclopedia containing all Poké/i,
     );
